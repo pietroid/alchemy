@@ -7,7 +7,11 @@
       "Bash(git commit:*)",
       "Bash(gh repo create:*)",
       "Bash(gh auth switch:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(flutter pub get:*)",
+      "Bash(/Users/pietroteruya/dev/flutter/bin/flutter pub get:*)",
+      "Bash(/Users/pietroteruya/dev/flutter/bin/flutter analyze:*)",
+      "Bash(/Users/pietroteruya/dev/flutter/bin/flutter test:*)"
     ]
   }
 }
