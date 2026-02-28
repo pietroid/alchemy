@@ -7,4 +7,6 @@ So it's indeed like offloading work to a more junior developer. Except it isn't 
 
  - Time tracking
  - Expenses (tokens usage)
- - 
+ - Direction (context)
+
+ 
