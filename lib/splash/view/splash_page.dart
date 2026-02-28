@@ -35,7 +35,7 @@ class _SplashViewState extends State<SplashView> {
 
   Future<void> _initAudio() async {
     try {
-      await _player.setAsset('assets/music/background_music.mp3');
+      await _player.setAsset('assets/music/background_music2.mp3');
       await _player.setLoopMode(LoopMode.one);
       await _player.play();
     } catch (_) {

@@ -12,7 +12,7 @@ class SplashCubit extends Cubit<String> {
   Timer? _timer;
 
   void _startCycling() {
-    _timer = Timer.periodic(const Duration(seconds: 3), (_) {
+    _timer = Timer.periodic(const Duration(milliseconds: 3640), (_) {
       _index = (_index + 1) % _subtitles.length;
       emit(_subtitles[_index]);
     });
