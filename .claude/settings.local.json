@@ -13,7 +13,15 @@
       "Bash(/Users/pietroteruya/dev/flutter/bin/flutter analyze:*)",
       "Bash(/Users/pietroteruya/dev/flutter/bin/flutter test:*)",
       "Bash(chmod +x /Users/pietroteruya/dev/alchimia/scripts/rename_alchemy_to_alchimia.sh)",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(python3 -c \"from PIL import Image; img = Image.open\\(''/Users/pietroteruya/dev/alchimia/icon.png''\\); print\\(f''Dimensions: {img.width}x{img.height}''\\)\")",
+      "Bash(file /Users/pietroteruya/dev/alchimia/web/icons/*.png /Users/pietroteruya/dev/alchimia/web/favicon.png)",
+      "Bash(sips -version)",
+      "Bash(magick -version)",
+      "Bash(convert -version)",
+      "Bash(chmod +x /Users/pietroteruya/dev/alchimia/scripts/generate_icons.sh)",
+      "Bash(./scripts/generate_icons.sh)",
+      "Bash(ls -lh /Users/pietroteruya/dev/alchimia/macos/Runner/Assets.xcassets/AppIcon-dev.appiconset/*.png)"
     ]
   }
 }

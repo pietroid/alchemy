@@ -1,0 +1,27 @@
+flutter_launcher_icons:
+  # ── Android ──────────────────────────────────────────────────────────────────
+  android: true
+  image_path: "icon.png"             # legacy mipmap PNGs (pre-API 26)
+  adaptive_icon_background: "#3B2918" # API 26+ adaptive icon background
+  adaptive_icon_foreground: "icon.png" # API 26+ adaptive icon foreground
+  min_sdk_android: 21
+
+  # ── iOS ──────────────────────────────────────────────────────────────────────
+  ios: true
+  remove_alpha_ios: true             # iOS icons must be fully opaque
+  background_color_ios: "#3B2918"    # fill transparent areas with brand colour
+
+  # ── Web ──────────────────────────────────────────────────────────────────────
+  web:
+    generate: true
+    image_path: "icon.png"
+    background_color: "#3B2918"      # manifest.json background_color
+    theme_color: "#3B2918"           # manifest.json theme_color
+
+  # ── macOS ────────────────────────────────────────────────────────────────────
+  # Uses a pre-composed image (icon.png composited onto #3B2918)
+  # because the macos section does not support background_color natively.
+  # Run scripts/generate_icons.sh which creates icon_macos.png first.
+  macos:
+    generate: true
+    image_path: "icon_macos.png"
