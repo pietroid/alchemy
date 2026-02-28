@@ -16,6 +16,7 @@ dependencies:
   go_router: ^14.8.1
   google_fonts: ^6.2.1
   intl: ^0.19.0
+  just_audio: ^0.9.40
 
 dev_dependencies:
   bloc_test: ^9.1.7
@@ -30,3 +31,9 @@ flutter:
   generate: true
   assets:
     - assets/images/
+    - assets/fonts/
+    - assets/music/
+  fonts:
+    - family: Menlo
+      fonts:
+        - asset: assets/fonts/Menlo-Regular.ttf

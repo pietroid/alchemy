@@ -21,7 +21,15 @@
       "Bash(convert -version)",
       "Bash(chmod +x /Users/pietroteruya/dev/alchimia/scripts/generate_icons.sh)",
       "Bash(./scripts/generate_icons.sh)",
-      "Bash(ls -lh /Users/pietroteruya/dev/alchimia/macos/Runner/Assets.xcassets/AppIcon-dev.appiconset/*.png)"
+      "Bash(ls -lh /Users/pietroteruya/dev/alchimia/macos/Runner/Assets.xcassets/AppIcon-dev.appiconset/*.png)",
+      "Bash(export PATH=\"$PATH:$HOME/flutter/bin\")",
+      "Bash(fvm flutter pub get)"
     ]
-  }
+  },
+  "allowedTools": [
+    "Bash(git:*)",
+    "Bash(ls:*)",
+    "Bash(cd:*)",
+    "Bash(cat:*)"
+  ]
 }
