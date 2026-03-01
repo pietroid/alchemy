@@ -19,7 +19,7 @@ class ContainerPayload extends WidgetPayload {
   final double height;
   final Color color;
 
-// TODO(any): Consider the usage of equatable.
+  //TODO(any): Consider the usage of equatable.
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||

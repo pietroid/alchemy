@@ -1,5 +1,5 @@
 import 'package:alchimia/app/app.dart';
-import 'package:alchimia/l10n/l10n.dart';
+import 'package:alchimia/l10n/arb/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -8,9 +8,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
+      theme: ThemeData(useMaterial3: true),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       routerConfig: appRouter,
