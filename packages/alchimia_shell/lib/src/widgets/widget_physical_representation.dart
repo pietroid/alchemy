@@ -1,5 +1,6 @@
 import 'package:alchimia_engine/alchimia_engine.dart';
 import 'package:alchimia_shell/src/cubit/canvas_cubit.dart';
+import 'package:alchimia_shell/src/layout_constants.dart';
 import 'package:alchimia_shell/src/widgets/circuit_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,20 +20,18 @@ class WidgetPhysicalRepresentation extends StatelessWidget {
   final WidgetData data;
   final int index;
 
-  static const double _kWidth = 220;
-
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return GestureDetector(
       onPanUpdate: (details) {
-        context.read<CanvasCubit>().moveWidget(index, details.globalPosition);
+        context.read<CanvasCubit>().moveWidget(index, details.delta);
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: _kWidth,
+            width: kCircuitComponentWidth,
             decoration: BoxDecoration(
               color: colorScheme.surfaceContainer,
               border: Border.all(color: colorScheme.outline),

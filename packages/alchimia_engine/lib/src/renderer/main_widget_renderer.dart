@@ -6,12 +6,13 @@ extension MainWidgetRenderer on MainWidgetData {
   /// Renders this [MainWidgetData] as a 390×844 bordered container with
   /// scrollable children.
   Widget toWidget(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       width: 390,
       height: 844,
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1A1A),
-        border: Border.all(color: const Color(0xFF2A2A2A)),
+        color: colorScheme.surfaceContainer,
+        border: Border.all(color: colorScheme.outline),
       ),
       child: SingleChildScrollView(
         child: Column(

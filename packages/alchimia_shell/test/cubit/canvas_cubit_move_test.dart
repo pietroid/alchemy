@@ -8,7 +8,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('CanvasCubit.moveWidget', () {
     blocTest<CanvasCubit, CanvasState>(
-      'updates the offset of the placed widget at the given index',
+      'accumulates delta onto the current offset',
       build: CanvasCubit.new,
       seed: () => const CanvasState(
         mainWidget: MainWidgetData(
@@ -27,7 +27,7 @@ void main() {
           ),
         ],
       ),
-      act: (cubit) => cubit.moveWidget(0, const Offset(700, 200)),
+      act: (cubit) => cubit.moveWidget(0, const Offset(100, 120)),
       expect: () => const [
         CanvasState(
           mainWidget: MainWidgetData(
@@ -78,7 +78,7 @@ void main() {
           ),
         ],
       ),
-      act: (cubit) => cubit.moveWidget(1, const Offset(800, 300)),
+      act: (cubit) => cubit.moveWidget(1, const Offset(200, 36)),
       expect: () => const [
         CanvasState(
           mainWidget: MainWidgetData(

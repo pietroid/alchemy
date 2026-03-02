@@ -26,10 +26,12 @@ class CanvasCubit extends Cubit<CanvasState> {
     );
   }
 
-  /// Updates the table position of the placed widget at [index].
-  void moveWidget(int index, Offset newOffset) {
+  /// Translates the placed widget at [index] by [delta].
+  void moveWidget(int index, Offset delta) {
     final updated = List<PlacedWidget>.from(state.placedWidgets);
-    updated[index] = updated[index].copyWith(offset: newOffset);
+    updated[index] = updated[index].copyWith(
+      offset: updated[index].offset + delta,
+    );
     emit(state.copyWith(placedWidgets: updated));
   }
 }

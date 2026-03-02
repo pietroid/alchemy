@@ -1,9 +1,5 @@
+import 'package:alchimia_shell/src/layout_constants.dart';
 import 'package:flutter/material.dart';
-
-// Layout constants shared across circuit representations.
-const double _kHeaderHeight = 28;
-const double _kPortSize = 8;
-const double _kPortRowHeight = 24;
 
 /// Shared sub-widgets for physical circuit component representations.
 /// These are private to the shell package.
@@ -18,7 +14,7 @@ class ComponentHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return Container(
-      height: _kHeaderHeight,
+      height: kCircuitHeaderHeight,
       width: double.infinity,
       decoration: BoxDecoration(
         border: Border(
@@ -43,8 +39,8 @@ class PortCircle extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return SizedBox(
-      width: _kPortSize,
-      height: _kPortSize,
+      width: kCircuitPortSize,
+      height: kCircuitPortSize,
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: colorScheme.outline,
@@ -69,10 +65,10 @@ class InputPortColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: _kHeaderHeight),
+        const SizedBox(height: kCircuitHeaderHeight),
         ...portLabels.map(
           (label) => SizedBox(
-            height: _kPortRowHeight,
+            height: kCircuitPortRowHeight,
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -99,9 +95,9 @@ class OutputPortStub extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        SizedBox(height: _kHeaderHeight),
+        SizedBox(height: kCircuitHeaderHeight),
         SizedBox(
-          height: _kPortRowHeight,
+          height: kCircuitPortRowHeight,
           child: PortCircle(),
         ),
       ],

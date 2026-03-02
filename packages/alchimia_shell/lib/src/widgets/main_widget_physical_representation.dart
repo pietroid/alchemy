@@ -18,10 +18,7 @@ class MainWidgetPhysicalRepresentation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final portLabels = List.generate(
-      mainWidgetData.children.length,
-      (i) => mainWidgetData.children[i].type.name,
-    );
+    final portLabels = mainWidgetData.children.map((c) => c.type.name).toList();
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,5 +1,6 @@
 import 'package:alchimia_engine/alchimia_engine.dart';
 import 'package:alchimia_shell/src/cubit/canvas_cubit.dart';
+import 'package:alchimia_shell/src/layout_constants.dart';
 import 'package:alchimia_shell/src/widgets/main_widget_physical_representation.dart';
 import 'package:alchimia_shell/src/widgets/table_grid.dart';
 import 'package:alchimia_shell/src/widgets/widget_physical_representation.dart';
@@ -8,8 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Layout constants for the circuit table.
-const double _kMainLeft = 60;
-const double _kMainTop = 80;
 const double _kChildColumnLeft = 600;
 const double _kChildSpacing = 24;
 const double _kEstimatedSlotHeight = 160;
@@ -28,7 +27,7 @@ class TableView extends StatelessWidget {
   Offset _childOffset(int index) {
     return Offset(
       _kChildColumnLeft,
-      _kMainTop + index * (_kEstimatedSlotHeight + _kChildSpacing),
+      kCircuitMainTop + index * (_kEstimatedSlotHeight + _kChildSpacing),
     );
   }
 
@@ -60,8 +59,8 @@ class TableView extends StatelessWidget {
                         children: [
                           const Positioned.fill(child: TableGrid()),
                           Positioned(
-                            left: _kMainLeft,
-                            top: _kMainTop,
+                            left: kCircuitMainLeft,
+                            top: kCircuitMainTop,
                             child: MainWidgetPhysicalRepresentation(
                               mainWidgetData: state.mainWidget,
                             ),

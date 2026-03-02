@@ -1,13 +1,6 @@
+import 'package:alchimia_shell/src/layout_constants.dart';
 import 'package:alchimia_shell/src/models/placed_widget.dart';
 import 'package:flutter/material.dart';
-
-// Layout constants matching circuit component dimensions.
-const double _kComponentWidth = 220;
-const double _kHeaderHeight = 28;
-const double _kPortSize = 8;
-const double _kPortRowHeight = 24;
-const double _kMainLeft = 60;
-const double _kMainTop = 80;
 
 /// [CustomPainter] that draws cubic bezier wires connecting child component
 /// output ports to the main widget input ports.
@@ -46,17 +39,17 @@ class WirePainter extends CustomPainter {
     // Child output port: right side of the component body, vertically centered
     // in the header area.
     final from = Offset(
-      placed.offset.dx + _kComponentWidth + _kPortSize / 2,
-      placed.offset.dy + _kHeaderHeight / 2,
+      placed.offset.dx + kCircuitComponentWidth + kCircuitPortSize / 2,
+      placed.offset.dy + kCircuitHeaderHeight / 2,
     );
 
     // Main input port: left side of the main widget, one port per child.
     final to = Offset(
-      _kMainLeft - _kPortSize / 2,
-      _kMainTop +
-          _kHeaderHeight +
-          inputIndex * _kPortRowHeight +
-          _kPortRowHeight / 2,
+      kCircuitMainLeft - kCircuitPortSize / 2,
+      kCircuitMainTop +
+          kCircuitHeaderHeight +
+          inputIndex * kCircuitPortRowHeight +
+          kCircuitPortRowHeight / 2,
     );
 
     // Horizontal bezier control point distance proportional to x separation.
