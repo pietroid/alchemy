@@ -6,20 +6,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group('CanvasCubit', () {
-    test('initial state has empty main widget and no placed widgets', () {
-      final cubit = CanvasCubit();
-      expect(cubit.state.mainWidget.children, isEmpty);
-      expect(cubit.state.placedWidgets, isEmpty);
-    });
-
+  group('CanvasCubit.moveWidget', () {
     blocTest<CanvasCubit, CanvasState>(
-      'addWidget once appends to mainWidget.children and placedWidgets',
+      'updates the offset of the placed widget at the given index',
       build: CanvasCubit.new,
-      act: (cubit) => cubit.addWidget(
-        const BoxWidgetData(width: 100, height: 50, color: Color(0xFF0000FF)),
-        tableOffset: const Offset(600, 80),
+      seed: () => const CanvasState(
+        mainWidget: MainWidgetData(
+          children: [
+            BoxWidgetData(width: 100, height: 50, color: Color(0xFF0000FF)),
+          ],
+        ),
+        placedWidgets: [
+          PlacedWidget(
+            data: BoxWidgetData(
+              width: 100,
+              height: 50,
+              color: Color(0xFF0000FF),
+            ),
+            offset: Offset(600, 80),
+          ),
+        ],
       ),
+      act: (cubit) => cubit.moveWidget(0, const Offset(700, 200)),
       expect: () => const [
         CanvasState(
           mainWidget: MainWidgetData(
@@ -34,7 +42,7 @@ void main() {
                 height: 50,
                 color: Color(0xFF0000FF),
               ),
-              offset: Offset(600, 80),
+              offset: Offset(700, 200),
             ),
           ],
         ),
@@ -42,45 +50,36 @@ void main() {
     );
 
     blocTest<CanvasCubit, CanvasState>(
-      'addWidget twice appends both widgets in order',
+      'does not affect other placed widgets when moving one',
       build: CanvasCubit.new,
-      act: (cubit) {
-        cubit
-          ..addWidget(
-            const BoxWidgetData(
+      seed: () => const CanvasState(
+        mainWidget: MainWidgetData(
+          children: [
+            BoxWidgetData(width: 100, height: 50, color: Color(0xFF0000FF)),
+            BoxWidgetData(width: 200, height: 80, color: Color(0xFFFF0000)),
+          ],
+        ),
+        placedWidgets: [
+          PlacedWidget(
+            data: BoxWidgetData(
               width: 100,
               height: 50,
               color: Color(0xFF0000FF),
             ),
-            tableOffset: const Offset(600, 80),
-          )
-          ..addWidget(
-            const BoxWidgetData(
+            offset: Offset(600, 80),
+          ),
+          PlacedWidget(
+            data: BoxWidgetData(
               width: 200,
               height: 80,
               color: Color(0xFFFF0000),
             ),
-            tableOffset: const Offset(600, 264),
-          );
-      },
-      expect: () => const [
-        CanvasState(
-          mainWidget: MainWidgetData(
-            children: [
-              BoxWidgetData(width: 100, height: 50, color: Color(0xFF0000FF)),
-            ],
+            offset: Offset(600, 264),
           ),
-          placedWidgets: [
-            PlacedWidget(
-              data: BoxWidgetData(
-                width: 100,
-                height: 50,
-                color: Color(0xFF0000FF),
-              ),
-              offset: Offset(600, 80),
-            ),
-          ],
-        ),
+        ],
+      ),
+      act: (cubit) => cubit.moveWidget(1, const Offset(800, 300)),
+      expect: () => const [
         CanvasState(
           mainWidget: MainWidgetData(
             children: [
@@ -103,7 +102,7 @@ void main() {
                 height: 80,
                 color: Color(0xFFFF0000),
               ),
-              offset: Offset(600, 264),
+              offset: Offset(800, 300),
             ),
           ],
         ),

@@ -27,3 +27,8 @@ To achieve the "build" goal, we need to support visualization and edition of the
 - You can consider neutral colors for the wire, and use the "coding" text theme from the thematization you already is provided to. Remebmer: any definition on colors, etc. must be done on this layer.
 - For the physical representation of the widget and the canvas inside, you can create a nested Flutter widget that has the scaffolding part (that we can adjust the ui later), with a border and a padding, and inside of it the canvas itself which just renders the widget, with no UI changes.
 - Does not implement the moving part of the table, just consider it as a context that we implement in next iterations.
+
+# Final evaluation
+
+- It produced overall good results, I would say a 80%. The rest 20% is that it doesn't allow me to delete/rewire and also the wires are plain bezier, which doesn't fit nicely when the widgets are on the other side of the connection.
+- Another thing that bothered me in the code is that we have a physical representation for the main widget and also for separate widgets. They must be abstracted as the same thing.

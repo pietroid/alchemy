@@ -43,6 +43,44 @@ void main() {
       expect(sizedBox.width, 0.0);
       expect(sizedBox.height, 0.0);
     });
+
+    group('MainWidgetData', () {
+      testWidgets('renders 390×844 container when children is empty', (
+        tester,
+      ) async {
+        const data = MainWidgetData();
+
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(body: EngineRenderer(data: data)),
+          ),
+        );
+
+        final containers = tester.widgetList<Container>(
+          find.byType(Container),
+        );
+        final outer = containers.first;
+        expect(outer.constraints?.maxWidth, 390);
+        expect(outer.constraints?.maxHeight, 844);
+      });
+
+      testWidgets('renders nested BoxWidgetData child', (tester) async {
+        const child = BoxWidgetData(
+          width: 100,
+          height: 50,
+          color: Color(0xFF0000FF),
+        );
+        const data = MainWidgetData(children: [child]);
+
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(body: EngineRenderer(data: data)),
+          ),
+        );
+
+        expect(find.byType(EngineRenderer), findsNWidgets(2));
+      });
+    });
   });
 }
 

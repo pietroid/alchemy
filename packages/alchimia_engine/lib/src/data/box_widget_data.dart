@@ -29,4 +29,7 @@ class BoxWidgetData extends WidgetData {
     'height': height,
     'color': color.toARGB32(),
   };
+
+  @override
+  List<Object?> get props => [type, width, height, color];
 }

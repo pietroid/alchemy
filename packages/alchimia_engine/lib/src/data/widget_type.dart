@@ -16,4 +16,7 @@ enum WidgetType {
 
   /// Stateful maps directly into the StatefulWidget.
   stateful,
+
+  /// Main represents the root widget container for the circuit table.
+  main,
 }

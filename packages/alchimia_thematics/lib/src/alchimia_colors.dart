@@ -9,4 +9,7 @@ abstract final class AlchimiaColors {
   static const Color border = Color(0xFF2A2A2A);
   static const Color accent = Color(0xFF4A4A8A);
   static const Color panelBorder = Color(0xFF4A4A4A);
+  // Wire stroke colors for circuit table connections.
+  static const Color wire = Color(0xFF555555);
+  static const Color wireHighlight = Color(0xFF888888);
 }

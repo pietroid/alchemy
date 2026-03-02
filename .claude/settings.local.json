@@ -24,7 +24,8 @@
       "Bash(ls -lh /Users/pietroteruya/dev/alchimia/macos/Runner/Assets.xcassets/AppIcon-dev.appiconset/*.png)",
       "Bash(export PATH=\"$PATH:$HOME/flutter/bin\")",
       "Bash(fvm flutter pub get)",
-      "Bash(flutter:*)"
+      "Bash(flutter:*)",
+      "mcp__ide__getDiagnostics"
     ],
     "defaultMode": "plan"
   },

@@ -19,6 +19,9 @@ abstract final class AlchimiaTheme {
           primary: AlchimiaColors.accent,
           // Subtle border inside panels and cards.
           outlineVariant: AlchimiaColors.panelBorder,
+          // Wire stroke for circuit table connections.
+          tertiaryContainer: AlchimiaColors.wire,
+          onTertiaryContainer: AlchimiaColors.wireHighlight,
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: AlchimiaColors.panel,
@@ -29,6 +32,12 @@ abstract final class AlchimiaTheme {
           bodyMedium: TextStyle(
             color: AlchimiaColors.dimText,
             fontFamily: 'Menlo',
+          ),
+          // Coding-style label for circuit component port names and headers.
+          labelSmall: TextStyle(
+            color: AlchimiaColors.dimText,
+            fontSize: 9,
+            letterSpacing: 0.5,
           ),
         ),
       );

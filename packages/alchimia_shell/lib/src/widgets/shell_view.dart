@@ -1,7 +1,7 @@
 import 'package:alchimia_engine/alchimia_engine.dart';
 import 'package:alchimia_shell/src/cubit/canvas_cubit.dart';
 import 'package:alchimia_shell/src/models/widget_catalog_item.dart';
-import 'package:alchimia_shell/src/widgets/engine_canvas.dart';
+import 'package:alchimia_shell/src/widgets/table_view.dart';
 import 'package:alchimia_shell/src/widgets/widget_menu_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,7 +36,7 @@ class ShellView extends StatelessWidget {
       child: Scaffold(
         backgroundColor: colorScheme.surface,
         body: Row(
-          children: [WidgetMenuPanel(items: items), const EngineCanvas()],
+          children: [WidgetMenuPanel(items: items), const TableView()],
         ),
       ),
     );
